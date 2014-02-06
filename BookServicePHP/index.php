@@ -67,3 +67,5 @@ class Books {
 		return count($this->_books);
 	}
 }
+
+?>
