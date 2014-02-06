@@ -5,7 +5,7 @@
 
     // Collect the routes
     app.constant('routes', getRoutes());
-    
+
     // Configure the routes and route resolvers
     app.config(['$routeProvider', 'routes', routeConfigurator]);
     function routeConfigurator($routeProvider, routes) {
@@ -37,6 +37,16 @@
                     settings: {
                         nav: 2,
                         content: '<i class="icon-lock"></i> Admin'
+                    }
+                }
+            }, {
+                url: '/book',
+                config: {
+                    title: 'bookEditor',
+                    templateUrl: 'app/bookEditor/bookEditor.html',
+                    settings: {
+                        nav: 3,
+                        content: '<i class="icon-book"></i> Book Editor'
                     }
                 }
             }

@@ -3,17 +3,80 @@
 
     var serviceId = 'datacontext';
     angular.module('app').factory(serviceId,
-        ['common', datacontext]);
+        ['common', '$http', datacontext]);
 
-    function datacontext(common) {
+    function datacontext(common, $http) {
+        var getLogFn = common.logger.getLogFn;
+        var log = getLogFn(serviceId);
+        var logError = getLogFn(serviceId, 'error');
+
         var $q = common.$q;
+        var baseUrl = "http://localhost:36182/";
 
         var service = {
             getFeaturedBooks: getFeaturedBooks,
-            getMessageCount: getMessageCount
+            getMessageCount: getMessageCount,
+            saveNewBook: saveNewBook,
+            getAllBooks: getAllBooks,
+            getBook: getBook,
+            deleteBook : deleteBook
         };
 
         return service;
+
+        function saveNewBook(book) {
+            return $http.post(baseUrl + "Book", book)
+            .then(
+                function(result) {
+                    book.id = result.data.id;
+                    log("success, saved! " + JSON.stringify(book));
+                },
+                function(data, status) {
+                    logError("New Book Save Failed!");
+                }
+            )
+        }
+
+        function getBook(book) {
+            return $http.get(baseUrl + "Book/Title/" + book.title + "?format=json")
+                .then(
+                    function(result) {
+                        book.id = result.data.Id;
+                        book.title = result.data.Title;
+                        book.author = result.data.Author;
+                        book.price = result.data.Price;
+                        log("Success, retrieved " + JSON.stringify(book));
+                    },
+                    function(data, status) {
+                        logError("Retrieve book failed.");
+                    }
+                );
+        }
+        
+        function deleteBook(book) {
+            return $http.delete(baseUrl + "Book/" + book.id)
+                .then(
+                    function (result) {
+                        log("Success. Deleted" + JSON.stringify(book));
+                    },
+                    function (data, status) {
+                        logError("Delete book failed!");
+                    }
+                );
+        }
+
+        function getAllBooks() {
+            return $http.get(baseUrl + "Book")
+                .then(
+                    function(results) {
+                        log("Success, retrieved all books");
+                        return results.data;
+                    },
+                    function(data, status) {
+                        logError("Get all books failed");
+                    }            
+                );
+        }
 
         function getMessageCount() { return $q.when(72); }
 
