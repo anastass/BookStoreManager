@@ -3,8 +3,50 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5fce2cdfc7f7494f3434012e95bf8eee",
+    "hash": "bc2c707a7ef75b6fb24062773d97e80b",
     "packages": [
+        {
+            "name": "athari/yalinqo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Athari/YaLinqo.git",
+                "reference": "6b3247909e037f218cca624c561d8a47ceeed6d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Athari/YaLinqo/zipball/6b3247909e037f218cca624c561d8a47ceeed6d2",
+                "reference": "6b3247909e037f218cca624c561d8a47ceeed6d2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "YaLinqo/Linq.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Simplified BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Prokhorov"
+                }
+            ],
+            "description": "YaLinqo, a LINQ-to-objects library for PHP",
+            "homepage": "https://github.com/Athari/YaLinqo",
+            "keywords": [
+                "linq",
+                "linqo",
+                "query",
+                "statistic"
+            ],
+            "time": "2013-05-08 12:59:02"
+        },
         {
             "name": "slim/slim",
             "version": "2.4.0",
@@ -59,9 +101,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "athari/yalinqo": 20
+    },
     "platform": [
 
     ],

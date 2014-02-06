@@ -23,3 +23,13 @@ To test the service type
 
 - [Slim website](http://slimframework.com/)
 - [Documentation](http://docs.slimframework.com/)
+
+### YaLinqo
+
+- [Athari/YaLinqo](https://github.com/Athari/YaLinqo)
+
+see also
+
+- [linq.js - LINQ for JavaScript](http://linqjs.codeplex.com/)
+- [Underscore.js](http://documentcloud.github.io/underscore/)
+- [Undersocre.php](http://brianhaveri.github.io/Underscore.php/)
