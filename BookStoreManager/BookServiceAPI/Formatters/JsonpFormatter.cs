@@ -12,7 +12,7 @@ using System.Web.Http;
 //Created by Rick Strahl
 //http://www.west-wind.com/weblog/posts/2012/Apr/02/Creating-a-JSONP-Formatter-for-ASPNET-Web-API
 
-namespace BookServiceAPI.Formatters
+namespace BookServiceAPIClient.Formatters
 {
 
     /// <summary>

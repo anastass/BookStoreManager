@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BookServiceAPI.Repository
+namespace BookServiceAPIClient.Repository
 {
     public interface IBookRepository
     {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BookServiceAPI.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BookServiceAPIClient.Default" %>
 
 <!DOCTYPE html>
 
@@ -18,8 +18,8 @@
 
     <ul>
         <li><a href="Books.aspx">Books</a></li>
-        <li><a href="api/books">WEB API call: /api/books</a></li>
-        <li><a href="api/books/1">WEB API call: /api/books/1</a></li>
+        <li><a href="http://localhost:14941/api/books">WEB API call: /api/books</a></li>
+        <li><a href="http://localhost:14941/api/books/1">WEB API call: /api/books/1</a></li>
     </ul>
 </body>
 </html>

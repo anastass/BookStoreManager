@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookServiceAPI", "BookServiceAPI\BookServiceAPI.csproj", "{373B2271-079B-44E0-A036-AC72599E17CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookServiceAPIClient", "BookServiceAPIClient\BookServiceAPIClient.csproj", "{343956A9-320B-4E20-92AE-0618B7677965}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{373B2271-079B-44E0-A036-AC72599E17CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{373B2271-079B-44E0-A036-AC72599E17CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{373B2271-079B-44E0-A036-AC72599E17CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{343956A9-320B-4E20-92AE-0618B7677965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{343956A9-320B-4E20-92AE-0618B7677965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{343956A9-320B-4E20-92AE-0618B7677965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{343956A9-320B-4E20-92AE-0618B7677965}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="BookServiceAPI.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="BookServiceAPIClient.Global" Language="C#" %>

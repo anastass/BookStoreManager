@@ -1,11 +1,13 @@
-﻿using BookServiceAPI.Formatters;
+﻿using BookServiceAPIClient.Formatters;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
-namespace BookServiceAPI.App_Start
+namespace BookServiceAPIClient.App_Start
 {
     public static class WebApiConfig
     {
@@ -18,6 +20,10 @@ namespace BookServiceAPI.App_Start
             );
 
             GlobalConfiguration.Configuration.Formatters.Insert(0, new JsonpFormatter());
+
+            // Enable CORS support - requires Microsoft ASP.NET Web API 2.1 Cross-Origin Support package
+            var cors = new EnableCorsAttribute(ConfigurationManager.AppSettings["origins"], "*", "*");
+            config.EnableCors();
         }
     }
 }

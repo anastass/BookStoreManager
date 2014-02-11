@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BookServiceAPI.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BookServiceAPIClient.Default" %>
 
 <!DOCTYPE html>
 <html>
@@ -34,13 +34,7 @@
         <div id="OutputDiv"></div>
 
         <script>
-            dataService.getBooks().done(function (books) {
-                var booksHtml = '';
-                for (var i = 0; i < books.length; i++) {
-                    booksHtml += '<li><a href="' + dataService.getUrlBase() + '/' + books[i].Id + '">' + books[i].Title + ', ' + books[i].Author + ', ' + books[i].Price + '</a>&nbsp;</li>';
-                }
-                $('#BooksContainer').html(booksHtml);
-            });
+            booksPage.getBooks();
         </script>
     </div>
 </body>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BookServiceAPI {
+namespace BookServiceAPIClient {
     
     
     public partial class Default {

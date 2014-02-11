@@ -1,13 +1,15 @@
-﻿using BookServiceAPI.Repository;
+﻿using BookServiceAPIClient.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
-namespace BookServiceAPI.Controllers
+namespace BookServiceAPIClient.Controllers
 {
+    //[EnableCorsAttribute("http://www.dotnetcurry.com/", "*", "*")]
     public class BooksController : ApiController
     {
         IBookRepository _Repository;

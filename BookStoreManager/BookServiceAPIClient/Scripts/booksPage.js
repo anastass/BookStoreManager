@@ -1,6 +1,7 @@
 ﻿/// <reference path="jquery-2.1.0.js" />
 var booksPage = function () {
-    var init = function () {
+    var showId = true,
+    init = function () {
         $('#GetBooks').click(function () {
             getBooks();
         });
@@ -26,7 +27,8 @@ var booksPage = function () {
         dataService.getBooks().done(function (books) {
             var booksHtml = '';
             for (var i = 0; i < books.length; i++) {
-                booksHtml += '<li><a href="' + dataService.getUrlBase() + '/' + books[i].Id + '">' + books[i].Title + ', ' + books[i].Author + ', ' + books[i].Price + '</a>&nbsp;</li>';
+                var msg = (showId ? '[' + books[i].Id + '] ' : '');
+                booksHtml += '<li><a href="' + dataService.getUrlBase() + '/' + books[i].Id + '">' + msg +books[i].Title + ', ' + books[i].Author + ', ' + books[i].Price + '</a>&nbsp;</li>';
             }
             $('#BooksContainer').html(booksHtml);
         });
@@ -91,7 +93,8 @@ var booksPage = function () {
     };
 
     return {
-        init: init
+        init: init,
+        getBooks: getBooks // expose getBooks() function
     };
 
 }();
