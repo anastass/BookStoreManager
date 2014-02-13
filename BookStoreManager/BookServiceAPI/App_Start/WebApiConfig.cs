@@ -13,6 +13,10 @@ namespace BookServiceAPIClient.App_Start
     {
         public static void Register(HttpConfiguration config)
         {
+            // Enable CORS support - requires Microsoft ASP.NET Web API 2.1 Cross-Origin Support package
+            // var cors = new EnableCorsAttribute(ConfigurationManager.AppSettings["origins"], "*", "*");
+            config.EnableCors();
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -20,10 +24,6 @@ namespace BookServiceAPIClient.App_Start
             );
 
             GlobalConfiguration.Configuration.Formatters.Insert(0, new JsonpFormatter());
-
-            // Enable CORS support - requires Microsoft ASP.NET Web API 2.1 Cross-Origin Support package
-            var cors = new EnableCorsAttribute(ConfigurationManager.AppSettings["origins"], "*", "*");
-            config.EnableCors();
         }
     }
 }

@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>TestAPI</title>
+    <script src="Scripts/jquery-2.1.0.js"></script>
+</head>
+<body>
+    <div>
+        <input id="param" type="text" value="10" style="width: 40px;" maxlength="5"/>
+        <select id="method">
+            <option value="get">GET</option>
+            <option value="post">POST</option>
+            <option value="put">PUT</option>
+            <option value="delete">DELETE</option>
+        </select>
+        <input type="button" value="Try it" onclick="sendRequest()" /><br />
+        <span id='result'>&nbsp;</span>
+        <p>
+            <pre><code>
+Scenario:
+    12 GET
+        error
+    12 POST
+    12 GET
+        {"Id":12,"Title":"Crashkurs Charttechnik","Author":"Markus Horntrich","Price":13.99} 
+    12 PUT
+    12 GET
+        {"Id":12,"Title":"Die Sturmkönige","Author":"Kai Meyer","Price":8.49}  
+    12 DELETE
+    12 GET
+        error
+            </code></pre>
+        </p>
+    </div>
+
+    <script>
+        var urlBase = 'http://localhost:14941/api/books';
+
+        function sendRequest() {
+            var v = $('#param').val();
+            var id = parseInt(v);
+            var method = $('#method').val();
+            var book = {
+                Id: id,
+                Title: 'Crashkurs Charttechnik',
+                Author: 'Markus Horntrich',
+                Price: 13.99
+            };
+
+            switch (method) {
+                case "get":
+                    console.log("Try " + method.toUpperCase() + "...");
+                    $.ajax({
+                        url: urlBase + "/" + id.toString(),
+                        type: 'GET'
+                    }).done(function (data) {
+                        $('#result').text(JSON.stringify(data));
+                        console.log("Book with " + id.toString() + " is successfully retrieved.");
+                    }).error(function (jqXHR, textStatus, errorThrown) {
+                        $('#result').text(jqXHR.responseText || textStatus);
+                    });
+                    break;
+
+                case "post":
+                    console.log("Try " + method.toUpperCase() + "...");
+                    $.ajax({
+                        url: urlBase,
+                        data: book,
+                        type: 'POST'
+                    }).done(function (data) {
+                        $('#result').text(data);
+                        console.log("The book was successfully inserted. The new id is " + book.Id.toString() + ".");
+                    }).error(function (jqXHR, textStatus, errorThrown) {
+                        $('#result').text(jqXHR.responseText || textStatus);
+                    });
+                    break;
+
+                case "put":
+                    console.log("Try " + method.toUpperCase() + "...");
+                    book.Title = "Die Sturmkönige";
+                    book.Author = "Kai Meyer";
+                    book.Price = 8.49;
+                    $.ajax({
+                        url: urlBase + '/' + book.Id.toString(),
+                        data: book,
+                        type: 'PUT'
+                    }).done(function (data) {
+                        $('#result').text(data);
+                        console.log("The book with id " + id.toString() + " was successfully updated.");
+                    }).error(function (jqXHR, textStatus, errorThrown) {
+                        $('#result').text(jqXHR.responseText || textStatus);
+                    });
+                    break;
+
+                case "delete":
+                    console.log("Try " + method.toUpperCase() + "...");
+                    $.ajax({
+                        url: urlBase + '/' + book.Id.toString(),
+                        type: 'DELETE'
+                    }).done(function (data) {
+                        $('#result').text(data);
+                        console.log("The book with id " + id.toString() + " was successfully deleted.");
+                    }).error(function (jqXHR, textStatus, errorThrown) {
+                        $('#result').text(jqXHR.responseText || textStatus);
+                    });
+                    break;
+
+                default:
+                    $('#result').text('Error processing ' + method);
+            }
+        };
+    </script>
+</body>
+</html>

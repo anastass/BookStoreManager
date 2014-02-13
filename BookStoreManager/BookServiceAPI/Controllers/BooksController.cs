@@ -9,7 +9,7 @@ using System.Web.Http.Cors;
 
 namespace BookServiceAPIClient.Controllers
 {
-    //[EnableCorsAttribute("http://www.dotnetcurry.com/", "*", "*")]
+    [EnableCors(origins: "http://localhost", headers: "*", methods: "*")]
     public class BooksController : ApiController
     {
         IBookRepository _Repository;
@@ -17,6 +17,11 @@ namespace BookServiceAPIClient.Controllers
         public BooksController()
         {
             _Repository = new BookRepository();
+        }
+
+        public BooksController(IBookRepository repo)
+        {
+            _Repository = repo;
         }
 
         // GET api/books

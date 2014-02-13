@@ -60,15 +60,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Books.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\art6.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\booksPage.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\dataService.js" />
-    <Content Include="packages.config" />
     <Content Include="README.md" />
+    <Content Include="Layout.Master" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="TestAPI.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +98,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Layout.Master.cs">
+      <DependentUpon>Layout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layout.Master.designer.cs">
+      <DependentUpon>Layout.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
